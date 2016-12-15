@@ -16,5 +16,10 @@ namespace KDTreeVisualizer.GUI
         {
             InitializeComponent();
         }
+
+        private void withRandomNumbersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

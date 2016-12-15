@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.MainMenu = new System.Windows.Forms.MenuStrip();
             this.createToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.withCustomNumbersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,8 +50,10 @@
             this.createToolStripMenuItem,
             this.viewTreeToolStripMenuItem,
             this.searchToolStripMenuItem});
-            resources.ApplyResources(this.MainMenu, "MainMenu");
+            this.MainMenu.Location = new System.Drawing.Point(0, 0);
             this.MainMenu.Name = "MainMenu";
+            this.MainMenu.Size = new System.Drawing.Size(784, 24);
+            this.MainMenu.TabIndex = 0;
             // 
             // createToolStripMenuItem
             // 
@@ -61,22 +62,27 @@
             this.withRandomNumbersToolStripMenuItem,
             this.withVisualToolToolStripMenuItem});
             this.createToolStripMenuItem.Name = "createToolStripMenuItem";
-            resources.ApplyResources(this.createToolStripMenuItem, "createToolStripMenuItem");
+            this.createToolStripMenuItem.Size = new System.Drawing.Size(78, 20);
+            this.createToolStripMenuItem.Text = "Create Tree";
             // 
             // withCustomNumbersToolStripMenuItem
             // 
             this.withCustomNumbersToolStripMenuItem.Name = "withCustomNumbersToolStripMenuItem";
-            resources.ApplyResources(this.withCustomNumbersToolStripMenuItem, "withCustomNumbersToolStripMenuItem");
+            this.withCustomNumbersToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.withCustomNumbersToolStripMenuItem.Text = "With Custom Points";
             // 
             // withRandomNumbersToolStripMenuItem
             // 
             this.withRandomNumbersToolStripMenuItem.Name = "withRandomNumbersToolStripMenuItem";
-            resources.ApplyResources(this.withRandomNumbersToolStripMenuItem, "withRandomNumbersToolStripMenuItem");
+            this.withRandomNumbersToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.withRandomNumbersToolStripMenuItem.Text = "With Random Points";
+            this.withRandomNumbersToolStripMenuItem.Click += new System.EventHandler(this.withRandomNumbersToolStripMenuItem_Click);
             // 
             // withVisualToolToolStripMenuItem
             // 
             this.withVisualToolToolStripMenuItem.Name = "withVisualToolToolStripMenuItem";
-            resources.ApplyResources(this.withVisualToolToolStripMenuItem, "withVisualToolToolStripMenuItem");
+            this.withVisualToolToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.withVisualToolToolStripMenuItem.Text = "With Visual Tool";
             // 
             // viewTreeToolStripMenuItem
             // 
@@ -84,17 +90,20 @@
             this.graphToolStripMenuItem,
             this.visualPointsToolStripMenuItem});
             this.viewTreeToolStripMenuItem.Name = "viewTreeToolStripMenuItem";
-            resources.ApplyResources(this.viewTreeToolStripMenuItem, "viewTreeToolStripMenuItem");
+            this.viewTreeToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
+            this.viewTreeToolStripMenuItem.Text = "View Tree";
             // 
             // graphToolStripMenuItem
             // 
             this.graphToolStripMenuItem.Name = "graphToolStripMenuItem";
-            resources.ApplyResources(this.graphToolStripMenuItem, "graphToolStripMenuItem");
+            this.graphToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.graphToolStripMenuItem.Text = "Graph";
             // 
             // visualPointsToolStripMenuItem
             // 
             this.visualPointsToolStripMenuItem.Name = "visualPointsToolStripMenuItem";
-            resources.ApplyResources(this.visualPointsToolStripMenuItem, "visualPointsToolStripMenuItem");
+            this.visualPointsToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.visualPointsToolStripMenuItem.Text = "Visual Points";
             // 
             // searchToolStripMenuItem
             // 
@@ -103,36 +112,46 @@
             this.pointRangeToolStripMenuItem,
             this.neasestPointToolStripMenuItem});
             this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
-            resources.ApplyResources(this.searchToolStripMenuItem, "searchToolStripMenuItem");
+            this.searchToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
+            this.searchToolStripMenuItem.Text = "Search";
             // 
             // singlePointToolStripMenuItem
             // 
             this.singlePointToolStripMenuItem.Name = "singlePointToolStripMenuItem";
-            resources.ApplyResources(this.singlePointToolStripMenuItem, "singlePointToolStripMenuItem");
+            this.singlePointToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.singlePointToolStripMenuItem.Text = "Single Point";
             // 
             // pointRangeToolStripMenuItem
             // 
             this.pointRangeToolStripMenuItem.Name = "pointRangeToolStripMenuItem";
-            resources.ApplyResources(this.pointRangeToolStripMenuItem, "pointRangeToolStripMenuItem");
+            this.pointRangeToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.pointRangeToolStripMenuItem.Text = "Point Range";
             // 
             // neasestPointToolStripMenuItem
             // 
             this.neasestPointToolStripMenuItem.Name = "neasestPointToolStripMenuItem";
-            resources.ApplyResources(this.neasestPointToolStripMenuItem, "neasestPointToolStripMenuItem");
+            this.neasestPointToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.neasestPointToolStripMenuItem.Text = "Neasest Point";
             // 
             // ViewPort
             // 
-            resources.ApplyResources(this.ViewPort, "ViewPort");
+            this.ViewPort.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ViewPort.Location = new System.Drawing.Point(0, 24);
             this.ViewPort.Name = "ViewPort";
+            this.ViewPort.Size = new System.Drawing.Size(784, 537);
+            this.ViewPort.TabIndex = 1;
             // 
             // MainWindow
             // 
-            resources.ApplyResources(this, "$this");
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.ViewPort);
             this.Controls.Add(this.MainMenu);
             this.MainMenuStrip = this.MainMenu;
+            this.MinimumSize = new System.Drawing.Size(800, 600);
             this.Name = "MainWindow";
+            this.Text = "KDVisualiser";
             this.MainMenu.ResumeLayout(false);
             this.MainMenu.PerformLayout();
             this.ResumeLayout(false);
@@ -143,7 +162,6 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip MainMenu;
-        private System.Windows.Forms.ToolStripMenuItem createToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem withCustomNumbersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem withRandomNumbersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem withVisualToolToolStripMenuItem;
@@ -155,6 +173,7 @@
         private System.Windows.Forms.ToolStripMenuItem pointRangeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem neasestPointToolStripMenuItem;
         private System.Windows.Forms.Panel ViewPort;
+        private System.Windows.Forms.ToolStripMenuItem createToolStripMenuItem;
     }
 }
 
