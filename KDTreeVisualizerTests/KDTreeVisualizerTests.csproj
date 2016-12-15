@@ -55,6 +55,12 @@
     <Compile Include="Helper\NumberValidatorTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\KDTreeVisualizer\KDTreeVisualizer.csproj">
+      <Project>{ece94e4c-e514-49ee-97a2-97f33a3c3ce7}</Project>
+      <Name>KDTreeVisualizer</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
