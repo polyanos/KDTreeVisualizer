@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KDTreeVisualizer.Helper.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,9 @@ namespace KDTreeVisualizer.GUI
 {
     public partial class SimpleInputWindow : Form
     {
-        private bool inputResult;
+        private bool submitted;
         private string textInputWatermark;
-        private Func<string, Tuple<bool, string>> validationFunction;
+        private Validator validator;
 
         /// <summary>
         /// 
@@ -26,11 +27,11 @@ namespace KDTreeVisualizer.GUI
         /// in string: The user string input.
         /// out Tuple&lt;bool,string&gt;&lt;/bool&gt;: The result of the validation where true means the validation succeeded and false means the validation failed, the string is a message to the user explaining why the validation failed.
         /// </param>
-        public SimpleInputWindow(string windowName, string labelText, string textBoxWatermark, Func<string, Tuple<bool, string>> validationFunction)
+        public SimpleInputWindow(string windowName, string labelText, string textBoxWatermark, Validator validator)
         {
-            this.inputResult = true;
+            this.submitted = false;
             this.textInputWatermark = textBoxWatermark;
-            this.validationFunction = validationFunction;
+            this.validator = validator;
 
             InitializeComponent();
 
@@ -45,9 +46,10 @@ namespace KDTreeVisualizer.GUI
         {
             if (textInput.Text != textInputWatermark)
             {
-                var result = validationFunction(textInput.Text);
+                var result = validator.validate(textInput.Text);
                 if (result.Item1)
                 {
+                    submitted = true;
                     this.Close();
                 }else
                 {
@@ -56,7 +58,12 @@ namespace KDTreeVisualizer.GUI
             }
         }
 
-        public string getInputString()
+        public bool IsSubmitted()
+        {
+            return submitted;
+        }
+
+        public string GetInputString()
         {
             return textInput.Text;
         }

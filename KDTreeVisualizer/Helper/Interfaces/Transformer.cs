@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace KDTreeVisualizer.Helper.Interfaces
 {
-    interface Transformer<T, X>
+    interface Transformer<T>
     {
-        T TransformInput(X input);
+        T TransformInput(string input);
     }
 }

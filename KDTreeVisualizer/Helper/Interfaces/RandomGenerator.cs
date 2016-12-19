@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KDTreeVisualizer.Helper
+namespace KDTreeVisualizer.Helper.Interfaces
 {
     interface RandomGenerator<T>
     {

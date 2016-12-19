@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace KDTreeVisualizer.Helper.Interfaces
 {
-    interface Validator <T>
+    public interface Validator
     {
-        Tuple<bool, string> validate(T input);
+        Tuple<bool, string> validate(string input);
     }
 }

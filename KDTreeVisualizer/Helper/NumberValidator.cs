@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace KDTreeVisualizer.Helper
 {
-    class NumberValidator : Validator<string>
+    class NumberValidator : Validator
     {
         public Tuple<bool, string> validate(string input)
         {

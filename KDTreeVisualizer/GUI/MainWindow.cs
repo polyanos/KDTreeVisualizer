@@ -1,4 +1,5 @@
 ﻿using KDTreeVisualizer.Business;
+using KDTreeVisualizer.Helper;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,7 +23,14 @@ namespace KDTreeVisualizer.GUI
 
         private void withRandomNumbersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            SimpleInputWindow inputWindow = new SimpleInputWindow("Number amount", "Insert the amount of generated numbers: ", "Amount", new NumberValidator());
+            inputWindow.ShowDialog();
+            if (inputWindow.IsSubmitted()) {
+                IList<Point> pointList = new RandomPointGenerator(this.ViewPort.Size.Width, this.ViewPort.Size.Height).GenerateMultipleValues(new NumberTransformer().TransformInput(inputWindow.GetInputString()));
+                treeController.CreateTree(pointList);
+            }
         }
+
+
     }
 }

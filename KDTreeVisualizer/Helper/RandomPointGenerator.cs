@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KDTreeVisualizer.Helper.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -23,14 +24,36 @@ namespace KDTreeVisualizer.Helper
 
         public Point[] GenerateMultipleValues(int amount)
         {
-            Point[] points = new Point[amount];
-
-            for (int x = 0; x < amount; x++)
+            IList<Tuple<int,IList<int>>> randomValues = new List<Tuple<int,IList<int>>>(yMax);
+            for(int y =0; y < yMax; y++)
             {
-                points[x] = new Point(rng.Next(xMax), rng.Next(yMax));
+                List<int> xValues = new List<int>();
+                for(int x = 0; x<xMax; x++)
+                {
+                    xValues.Add(x);
+                }
+
+                randomValues.Add(new Tuple<int, IList<int>>(y, xValues));
             }
 
-            return points;
+
+            Point[] pa = new Point[amount];
+            for(int x = 0; x < amount; x++)
+            {
+                int yKey = rng.Next(randomValues.Count);
+                Tuple<int, IList<int>> xTuple = randomValues[yKey];
+                int yValue = xTuple.Item1;
+
+                int xKey = rng.Next(xTuple.Item2.Count);
+                int xValue = xTuple.Item2[xKey];
+                xTuple.Item2.RemoveAt(xKey);
+
+                if(xTuple.Item2.Count < 1) { randomValues.RemoveAt(yKey); }
+
+                pa[x] = new Point(xValue, yValue);
+            }
+
+            return pa;
         }
 
         public Point GenerateSingleValue()

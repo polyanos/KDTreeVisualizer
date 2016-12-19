@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace KDTreeVisualizer.Helper
 {
-    class PointListValidator : Validator<string>
+    class PointListValidator : Validator
     {
         private static string regexString = @"^(?:\d+,\d+;)+$";
         private int xMax;
