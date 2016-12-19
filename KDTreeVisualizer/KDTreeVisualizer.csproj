@@ -46,7 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Business\PointKDTreeController.cs" />
     <Compile Include="Business\TreeController.cs" />
+    <Compile Include="Domain\Dimension.cs" />
+    <Compile Include="Domain\PointTreeNode.cs" />
+    <Compile Include="Domain\TreeNode.cs" />
     <Compile Include="GUI\MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,11 +64,15 @@
       <DependentUpon>SimpleInputWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="Helper\NumberValidator.cs" />
+    <Compile Include="Helper\PointKDTreeFactory.cs" />
     <Compile Include="Helper\PointListValidator.cs" />
+    <Compile Include="Helper\PointSorter.cs" />
     <Compile Include="Helper\RandomGenerator.cs" />
     <Compile Include="Helper\RandomPointGenerator.cs" />
-    <Compile Include="Helper\Transformer.cs" />
-    <Compile Include="Helper\Validator.cs" />
+    <Compile Include="Helper\Interfaces\Sorter.cs" />
+    <Compile Include="Helper\Interfaces\Transformer.cs" />
+    <Compile Include="Helper\Interfaces\TreeFactory.cs" />
+    <Compile Include="Helper\Interfaces\Validator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GUI\MainWindow.resx">
@@ -96,7 +104,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Domain\" />
     <Folder Include="Extensions\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

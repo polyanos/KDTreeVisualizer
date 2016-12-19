@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KDTreeVisualizer.Helper
+namespace KDTreeVisualizer.Helper.Interfaces
 {
-    interface Transformer<T, X>
+    public interface Sorter<T>
     {
-        T transform(X input);
+        IList<T> SortValues(IList<T> values);
     }
 }

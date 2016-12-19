@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KDTreeVisualizer.Helper
+namespace KDTreeVisualizer.Helper.Interfaces
 {
-    interface Validator <T>
+    interface Transformer<T, X>
     {
-        Tuple<bool, string> validate(T input);
+        T TransformInput(X input);
     }
 }

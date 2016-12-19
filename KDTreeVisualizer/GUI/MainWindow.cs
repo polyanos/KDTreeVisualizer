@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KDTreeVisualizer.Business;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,8 +13,10 @@ namespace KDTreeVisualizer.GUI
 {
     public partial class MainWindow : Form
     {
-        public MainWindow()
+        private TreeController<Point, int> treeController;
+        public MainWindow(TreeController<Point, int> treeController)
         {
+            this.treeController = treeController;
             InitializeComponent();
         }
 
