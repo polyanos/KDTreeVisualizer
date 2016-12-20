@@ -63,9 +63,11 @@
     <Compile Include="GUI\SimpleInputWindow.Designer.cs">
       <DependentUpon>SimpleInputWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helper\Interfaces\ListTransformer.cs" />
     <Compile Include="Helper\NumberTransformer.cs" />
     <Compile Include="Helper\NumberValidator.cs" />
     <Compile Include="Helper\PointKDTreeFactory.cs" />
+    <Compile Include="Helper\PointListTransformer.cs" />
     <Compile Include="Helper\PointListValidator.cs" />
     <Compile Include="Helper\PointSorter.cs" />
     <Compile Include="Helper\Interfaces\RandomGenerator.cs" />

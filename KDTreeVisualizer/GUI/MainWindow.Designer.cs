@@ -70,6 +70,7 @@
             this.withCustomNumbersToolStripMenuItem.Name = "withCustomNumbersToolStripMenuItem";
             this.withCustomNumbersToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.withCustomNumbersToolStripMenuItem.Text = "With Custom Points";
+            this.withCustomNumbersToolStripMenuItem.Click += new System.EventHandler(this.withCustomNumbersToolStripMenuItem_Click);
             // 
             // withRandomNumbersToolStripMenuItem
             // 

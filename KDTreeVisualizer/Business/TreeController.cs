@@ -19,5 +19,9 @@ namespace KDTreeVisualizer.Business
         TreeNode<T> getTree();
         IList<T> RangeSearch(X min, X max);
         T NearestNeightbour(X value);
+
+        //Listener
+        void addListener(TreeChangeListener listener);
+        void removeListener(TreeChangeListener listener);
     }
 }

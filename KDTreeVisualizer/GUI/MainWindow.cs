@@ -23,14 +23,30 @@ namespace KDTreeVisualizer.GUI
 
         private void withRandomNumbersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SimpleInputWindow inputWindow = new SimpleInputWindow("Number amount", "Insert the amount of generated numbers: ", "Amount", new NumberValidator());
+            SimpleInputWindow inputWindow = new SimpleInputWindow("Number amount",
+                "Insert the amount of generated numbers: ",
+                "Amount",
+                new NumberValidator());
             inputWindow.ShowDialog();
-            if (inputWindow.IsSubmitted()) {
-                IList<Point> pointList = new RandomPointGenerator(this.ViewPort.Size.Width, this.ViewPort.Size.Height).GenerateMultipleValues(new NumberTransformer().TransformInput(inputWindow.GetInputString()));
+            if (inputWindow.IsSubmitted())
+            {
+                IList<Point> pointList = new RandomPointGenerator(ViewPort.Size.Width, ViewPort.Size.Height).GenerateMultipleValues(new NumberTransformer().TransformInput(inputWindow.GetInputString()));
                 treeController.CreateTree(pointList);
             }
         }
 
-
+        private void withCustomNumbersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SimpleInputWindow inputWindow = new SimpleInputWindow("Custom Input",
+                "Enter the X and Y values seperated by a ',' and end each point with ';'.",
+                "23,66;321,123;...",
+                new PointListValidator(ViewPort.Size.Width, ViewPort.Size.Height));
+            inputWindow.ShowDialog();
+            if (inputWindow.IsSubmitted())
+            {
+                IList<Point> pointList = new PointListTransformer().Transform(inputWindow.GetInputString());
+                treeController.CreateTree(pointList);
+            }
+        }
     }
 }

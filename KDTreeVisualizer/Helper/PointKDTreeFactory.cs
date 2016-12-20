@@ -47,7 +47,7 @@ namespace KDTreeVisualizer.Helper
                 case 2:
                     values = sorter.SortValues(values);
                     root = new PointTreeNode(parent, dim, values[1]);
-                    root.LeftChild = RecursiveCreateTree(root, new List<Point> { values[0]}, nextDim);
+                    root.LeftChild = RecursiveCreateTree(root, new List<Point> { values[0] }, nextDim);
                     break;
                 default:
                     values = pointSorter.SortValues(values);
@@ -68,7 +68,7 @@ namespace KDTreeVisualizer.Helper
         {
             endIndex++;
             IList<Point> sublist = new List<Point>(endIndex - beginIndex);
-            for(; beginIndex < endIndex; beginIndex++)
+            for (; beginIndex < endIndex; beginIndex++)
             {
                 sublist.Add(source[beginIndex]);
             }
