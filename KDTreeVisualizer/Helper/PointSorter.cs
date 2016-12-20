@@ -34,8 +34,8 @@ namespace KDTreeVisualizer.Helper
             }
 
             int middle = values.Count / 2;
-            IList<Point> leftList = RecursiveSort(GetSubList(values, 0, middle - 1));
-            IList<Point> rightList = RecursiveSort(GetSubList(values, middle, values.Count - 1));
+            IList<Point> leftList = RecursiveSort(CopySubList(values, 0, middle - 1));
+            IList<Point> rightList = RecursiveSort(CopySubList(values, middle, values.Count - 1));
             return Merge(leftList, rightList);
         }
 
@@ -92,9 +92,10 @@ namespace KDTreeVisualizer.Helper
             }
         }
 
-        private IList<Point> GetSubList(IList<Point> source, int beginIndex, int endIndex)
+        private IList<Point> CopySubList(IList<Point> source, int beginIndex, int endIndex)
         {
-            IList<Point> subList = new List<Point>(endIndex - beginIndex + 1);
+            endIndex++;
+            IList<Point> subList = new List<Point>(endIndex - beginIndex);
             for (; beginIndex < endIndex; beginIndex++)
             {
                 subList.Add(source[beginIndex]);

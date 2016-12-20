@@ -18,7 +18,7 @@ namespace KDTreeVisualizer.Business
 
         public void CreateTree(IList<Point> points)
         {
-            throw new NotImplementedException();
+            KDTree = treeFactory.CreateTree(points);
         }
 
         public TreeNode<Point> getTree()
