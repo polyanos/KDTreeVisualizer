@@ -1,4 +1,7 @@
-﻿namespace KDTreeVisualizer.GUI
+﻿using KDTreeVisualizer.GUI.Panels;
+using System.Windows.Forms;
+
+namespace KDTreeVisualizer.GUI
 {
     partial class MainWindow
     {
@@ -33,14 +36,11 @@
             this.withCustomNumbersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.withRandomNumbersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.withVisualToolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewTreeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.graphToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.visualPointsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.singlePointToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pointRangeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.neasestPointToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ViewPort = new System.Windows.Forms.Panel();
+            this.tabbedViewports = new System.Windows.Forms.TabControl();
             this.MainMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,7 +48,6 @@
             // 
             this.MainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.createToolStripMenuItem,
-            this.viewTreeToolStripMenuItem,
             this.searchToolStripMenuItem});
             this.MainMenu.Location = new System.Drawing.Point(0, 0);
             this.MainMenu.Name = "MainMenu";
@@ -85,27 +84,6 @@
             this.withVisualToolToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.withVisualToolToolStripMenuItem.Text = "With Visual Tool";
             // 
-            // viewTreeToolStripMenuItem
-            // 
-            this.viewTreeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.graphToolStripMenuItem,
-            this.visualPointsToolStripMenuItem});
-            this.viewTreeToolStripMenuItem.Name = "viewTreeToolStripMenuItem";
-            this.viewTreeToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
-            this.viewTreeToolStripMenuItem.Text = "View Tree";
-            // 
-            // graphToolStripMenuItem
-            // 
-            this.graphToolStripMenuItem.Name = "graphToolStripMenuItem";
-            this.graphToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
-            this.graphToolStripMenuItem.Text = "Graph";
-            // 
-            // visualPointsToolStripMenuItem
-            // 
-            this.visualPointsToolStripMenuItem.Name = "visualPointsToolStripMenuItem";
-            this.visualPointsToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
-            this.visualPointsToolStripMenuItem.Text = "Visual Points";
-            // 
             // searchToolStripMenuItem
             // 
             this.searchToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -119,35 +97,36 @@
             // singlePointToolStripMenuItem
             // 
             this.singlePointToolStripMenuItem.Name = "singlePointToolStripMenuItem";
-            this.singlePointToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.singlePointToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.singlePointToolStripMenuItem.Text = "Single Point";
             // 
             // pointRangeToolStripMenuItem
             // 
             this.pointRangeToolStripMenuItem.Name = "pointRangeToolStripMenuItem";
-            this.pointRangeToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.pointRangeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.pointRangeToolStripMenuItem.Text = "Point Range";
             // 
             // neasestPointToolStripMenuItem
             // 
             this.neasestPointToolStripMenuItem.Name = "neasestPointToolStripMenuItem";
-            this.neasestPointToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.neasestPointToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.neasestPointToolStripMenuItem.Text = "Neasest Point";
             // 
-            // ViewPort
+            // tabbedViewports
             // 
-            this.ViewPort.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ViewPort.Location = new System.Drawing.Point(0, 24);
-            this.ViewPort.Name = "ViewPort";
-            this.ViewPort.Size = new System.Drawing.Size(784, 537);
-            this.ViewPort.TabIndex = 1;
+            this.tabbedViewports.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabbedViewports.Location = new System.Drawing.Point(0, 24);
+            this.tabbedViewports.Name = "tabbedViewports";
+            this.tabbedViewports.SelectedIndex = 0;
+            this.tabbedViewports.Size = new System.Drawing.Size(784, 537);
+            this.tabbedViewports.TabIndex = 1;
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
-            this.Controls.Add(this.ViewPort);
+            this.Controls.Add(this.tabbedViewports);
             this.Controls.Add(this.MainMenu);
             this.MainMenuStrip = this.MainMenu;
             this.MinimumSize = new System.Drawing.Size(800, 600);
@@ -160,21 +139,25 @@
 
         }
 
+        private void InitializeViewports()
+        {
+            tabbedViewports.TabPages.Add(new VisualPointPanel());
+            tabbedViewports.TabPages.Add(new VisualGraphPanel());
+        }
         #endregion
 
-        private System.Windows.Forms.MenuStrip MainMenu;
-        private System.Windows.Forms.ToolStripMenuItem withCustomNumbersToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem withRandomNumbersToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem withVisualToolToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem viewTreeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem graphToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem visualPointsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem singlePointToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem pointRangeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem neasestPointToolStripMenuItem;
-        private System.Windows.Forms.Panel ViewPort;
-        private System.Windows.Forms.ToolStripMenuItem createToolStripMenuItem;
+        private MenuStrip MainMenu;
+        private ToolStripMenuItem withCustomNumbersToolStripMenuItem;
+        private ToolStripMenuItem withRandomNumbersToolStripMenuItem;
+        private ToolStripMenuItem withVisualToolToolStripMenuItem;
+        private ToolStripMenuItem searchToolStripMenuItem;
+        private ToolStripMenuItem singlePointToolStripMenuItem;
+        private ToolStripMenuItem pointRangeToolStripMenuItem;
+        private ToolStripMenuItem neasestPointToolStripMenuItem;
+        private ToolStripMenuItem createToolStripMenuItem;
+        private TabControl tabbedViewports;
+        private Panel visualPoints;
+        private Panel visualGraph;
     }
 }
 

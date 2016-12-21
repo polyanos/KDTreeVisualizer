@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Business\PointKDTreeController.cs" />
+    <Compile Include="Business\TreeChangeListener.cs" />
     <Compile Include="Business\TreeController.cs" />
     <Compile Include="Domain\Dimension.cs" />
     <Compile Include="Domain\PointTreeNode.cs" />
@@ -56,6 +57,12 @@
     </Compile>
     <Compile Include="GUI\MainWindow.Designer.cs">
       <DependentUpon>MainWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Panels\VisualGraphPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GUI\Panels\VisualPointPanel.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="GUI\SimpleInputWindow.cs">
       <SubType>Form</SubType>

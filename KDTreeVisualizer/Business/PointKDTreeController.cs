@@ -10,6 +10,7 @@ namespace KDTreeVisualizer.Business
     {
         private TreeNode<Point> KDTree;
         private KdTreeFactory<Point> treeFactory;
+        private ICollection<TreeChangeListener> listeners;
 
         public PointKDTreeController(KdTreeFactory<Point> treeFactory)
         {
@@ -19,6 +20,17 @@ namespace KDTreeVisualizer.Business
         public void CreateTree(IList<Point> points)
         {
             KDTree = treeFactory.CreateTree(points);
+            NotifyTreeChangeListeners();
+        }
+
+        public void AddItemToTree(Point item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RemoveItemFromTree(Point item)
+        {
+            throw new NotImplementedException();
         }
 
         public TreeNode<Point> getTree()
@@ -34,6 +46,25 @@ namespace KDTreeVisualizer.Business
         public IList<Point> RangeSearch(int min, int max)
         {
             throw new NotImplementedException();
+        }
+
+        //Listeners
+        public void addListener(TreeChangeListener listener)
+        {
+            listeners.Add(listener);
+        }
+
+        public void removeListener(TreeChangeListener listener)
+        {
+            listeners.Remove(listener);
+        }
+
+        private void NotifyTreeChangeListeners()
+        {
+            foreach(TreeChangeListener listener in listeners)
+            {
+                listener.TreeHasChanged();
+            }
         }
     }
 }

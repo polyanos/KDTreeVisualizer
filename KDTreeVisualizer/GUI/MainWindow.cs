@@ -15,10 +15,12 @@ namespace KDTreeVisualizer.GUI
     public partial class MainWindow : Form
     {
         private TreeController<Point, int> treeController;
+
         public MainWindow(TreeController<Point, int> treeController)
         {
             this.treeController = treeController;
             InitializeComponent();
+            InitializeViewports();
         }
 
         private void withRandomNumbersToolStripMenuItem_Click(object sender, EventArgs e)

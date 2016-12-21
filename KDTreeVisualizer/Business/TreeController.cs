@@ -16,6 +16,8 @@ namespace KDTreeVisualizer.Business
     public interface TreeController<T, X> 
     {
         void CreateTree(IList<T> points);
+        void AddItemToTree(T item);
+        void RemoveItemFromTree(T item);
         TreeNode<T> getTree();
         IList<T> RangeSearch(X min, X max);
         T NearestNeightbour(X value);
